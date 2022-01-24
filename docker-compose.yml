@@ -44,12 +44,12 @@ volumes:
 
 secrets:
   nextcloud_admin_password:
-    file: "${PWD}/env/nextcloud_admin_password.txt" # put admin password to this file
+    file: "./env/nextcloud_admin_password.txt" # put admin password to this file
   nextcloud_admin_user:
-    file: "${PWD}/env/nextcloud_admin_user.txt" # put admin username to this file
+    file: "./env/nextcloud_admin_user.txt" # put admin username to this file
   postgres_db:
-    file: "${PWD}/env/postgres_db.txt" # put postgresql db name to this file
+    file: "./env/postgres_db.txt" # put postgresql db name to this file
   postgres_password:
-    file: "${PWD}/env/postgres_password.txt" # put postgresql password to this file
+    file: "./env/postgres_password.txt" # put postgresql password to this file
   postgres_user:
-    file: "${PWD}/env/postgres_user.txt" # put postgresql username to this file
+    file: "./env/postgres_user.txt" # put postgresql username to this file
