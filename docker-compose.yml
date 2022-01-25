@@ -44,7 +44,7 @@ volumes:
 
 secrets:
   nextcloud_admin_password:
-    file: "./env/nextcloud_admin_password.txt" # put admin password to this file
+    file: "nextcloud_admin_password.txt" # put admin password to this file
   nextcloud_admin_user:
     file: "./env/nextcloud_admin_user.txt" # put admin username to this file
   postgres_db:
