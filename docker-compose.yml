@@ -7,9 +7,9 @@ services:
     volumes:
       - db:/var/lib/postgresql/data
     environment:
-      - POSTGRES_DB_FILE=/run/secrets/postgres_db
-      - POSTGRES_USER_FILE=/run/secrets/postgres_user
-      - POSTGRES_PASSWORD_FILE=/run/secrets/postgres_password
+      - POSTGRES_DB=nextcloud
+      - POSTGRES_USER=next
+      - POSTGRES_PASSWORD=T3mp0r@l123
     secrets:
       - postgres_db
       - postgres_password
@@ -24,32 +24,32 @@ services:
       - nextcloud:/var/www/html
     environment:
       - POSTGRES_HOST=db
-      - POSTGRES_DB_FILE=/run/secrets/postgres_db
-      - POSTGRES_USER_FILE=/run/secrets/postgres_user
-      - POSTGRES_PASSWORD_FILE=/run/secrets/postgres_password
-      - NEXTCLOUD_ADMIN_PASSWORD_FILE=/run/secrets/nextcloud_admin_password
-      - NEXTCLOUD_ADMIN_USER_FILE=/run/secrets/nextcloud_admin_user
+      - POSTGRES_DB=nextcloud
+      - POSTGRES_USER=next
+      - POSTGRES_PASSWORD=T3mp0r@l123
+      - NEXTCLOUD_ADMIN_PASSWORD=Cobicio@2020
+      - NEXTCLOUD_ADMIN_USER=miguel
     depends_on:
       - db
-    secrets:
-      - nextcloud_admin_password
-      - nextcloud_admin_user
-      - postgres_db
-      - postgres_password
-      - postgres_user
+#    secrets:
+#      - nextcloud_admin_password
+#      - nextcloud_admin_user
+#      - postgres_db
+#      - postgres_password
+#      - postgres_user
 
 volumes:
   db:
   nextcloud:
 
-secrets:
-  nextcloud_admin_password:
-    file: "nextcloud_admin_password.txt" # put admin password to this file
-  nextcloud_admin_user:
-    file: "./env/nextcloud_admin_user.txt" # put admin username to this file
-  postgres_db:
-    file: "./env/postgres_db.txt" # put postgresql db name to this file
-  postgres_password:
-    file: "./env/postgres_password.txt" # put postgresql password to this file
-  postgres_user:
-    file: "./env/postgres_user.txt" # put postgresql username to this file
+#secrets:
+#  nextcloud_admin_password:
+#    file: "nextcloud_admin_password.txt" # put admin password to this file
+#  nextcloud_admin_user:
+#    file: "./env/nextcloud_admin_user.txt" # put admin username to this file
+#  postgres_db:
+#    file: "./env/postgres_db.txt" # put postgresql db name to this file
+#  postgres_password:
+#    file: "./env/postgres_password.txt" # put postgresql password to this file
+#  postgres_user:
+#    file: "./env/postgres_user.txt" # put postgresql username to this file
