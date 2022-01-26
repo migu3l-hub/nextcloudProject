@@ -29,6 +29,7 @@ services:
       - POSTGRES_PASSWORD=T3mp0r@l123
       - NEXTCLOUD_ADMIN_PASSWORD=Cobicio@2020
       - NEXTCLOUD_ADMIN_USER=miguel
+      - NEXTCLOUD_TRUSTED_DOMAINS=192.168.88.216
     depends_on:
       - db
 #    secrets:
