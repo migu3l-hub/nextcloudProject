@@ -10,10 +10,10 @@ services:
       - POSTGRES_DB=nextcloud
       - POSTGRES_USER=next
       - POSTGRES_PASSWORD=T3mp0r@l123
-    secrets:
-      - postgres_db
-      - postgres_password
-      - postgres_user
+#    secrets:
+#      - postgres_db
+#      - postgres_password
+#      - postgres_user
 
   app:
     image: nextcloud
