@@ -28,7 +28,7 @@ services:
       - POSTGRES_USER=sgfsdgv
       - POSTGRES_PASSWORD=sdfg
       - NEXTCLOUD_ADMIN_PASSWORD=sdfgsd
-      - NEXTCLOUD_ADMIN_USER=sdfgsd
+     # - NEXTCLOUD_ADMIN_USER=sdfgsd
       - NEXTCLOUD_TRUSTED_DOMAINS=sdfgsdgf
     depends_on:
       - db
