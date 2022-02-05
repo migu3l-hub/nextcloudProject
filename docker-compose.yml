@@ -5,7 +5,7 @@ services:
     image: postgres
     restart: always
     volumes:
-      - db:/var/lib/postgresql/data
+      - next-stack_db:/var/lib/postgresql/data
     environment:
       - POSTGRES_DB=${POSTGRES_DB_NEXT}
       - POSTGRES_USER=${POSTGRES_USER_NEXT}
