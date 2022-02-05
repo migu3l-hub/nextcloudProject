@@ -7,13 +7,9 @@ services:
     volumes:
       - db:/var/lib/postgresql/data
     environment:
-      - POSTGRES_DB=nextcloud
-      - POSTGRES_USER=next
-      - POSTGRES_PASSWORD=T3mp0r@l123
-#    secrets:
-#      - postgres_db
-#      - postgres_password
-#      - postgres_user
+      - POSTGRES_DB=${POSTGRES_DB_NEXT}
+      - POSTGRES_USER=${POSTGRES_USER_NEXT}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD_NEXT}
 
   app:
     image: nextcloud
@@ -23,34 +19,17 @@ services:
     volumes:
       - nextcloud:/var/www/html
     environment:
-      - POSTGRES_HOST=db
-      - POSTGRES_DB=nextcloud
-      - POSTGRES_USER=next
-      - POSTGRES_PASSWORD=T3mp0r@l123
-      - NEXTCLOUD_ADMIN_PASSWORD=Cobicio@2020
-      - NEXTCLOUD_ADMIN_USER=miguel
-      - NEXTCLOUD_TRUSTED_DOMAINS=192.168.88.50
+      - POSTGRES_HOST=${POSTGRES_HOST_NEXT}
+      - POSTGRES_DB=${POSTGRES_DB_NEXT}
+      - POSTGRES_USER=${POSTGRES_USER_NEXT}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD_NEXT}
+      - NEXTCLOUD_ADMIN_PASSWORD=${NEXTCLOUD_ADMIN_PASSWORD_NEXT}
+      - NEXTCLOUD_ADMIN_USER=${NEXTCLOUD_ADMIN_USER_NEXT}
+      - NEXTCLOUD_TRUSTED_DOMAINS=${NEXTCLOUD_TRUSTED_DOMAINS_NEXT}
     depends_on:
       - db
-#    secrets:
-#      - nextcloud_admin_password
-#      - nextcloud_admin_user
-#      - postgres_db
-#      - postgres_password
-#      - postgres_user
 
 volumes:
-  db:
+  next-stack_db:
+    external: true
   nextcloud:
-
-#secrets:
-#  nextcloud_admin_password:
-#    file: "nextcloud_admin_password.txt" # put admin password to this file
-#  nextcloud_admin_user:
-#    file: "./env/nextcloud_admin_user.txt" # put admin username to this file
-#  postgres_db:
-#    file: "./env/postgres_db.txt" # put postgresql db name to this file
-#  postgres_password:
-#    file: "./env/postgres_password.txt" # put postgresql password to this file
-#  postgres_user:
-#    file: "./env/postgres_user.txt" # put postgresql username to this file
