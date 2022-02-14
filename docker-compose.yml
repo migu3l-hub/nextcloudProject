@@ -5,7 +5,7 @@ services:
     image: postgres
     restart: always
     volumes:
-      - next-stack_db:/var/lib/postgresql/data
+      - db:/var/lib/postgresql/data
     environment:
       - POSTGRES_DB=${POSTGRES_DB_NEXT}
       - POSTGRES_USER=${POSTGRES_USER_NEXT}
@@ -30,6 +30,5 @@ services:
       - db
 
 volumes:
-  next-stack_db:
-    external: true
+  db:
   nextcloud:
