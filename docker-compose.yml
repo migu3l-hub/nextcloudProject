@@ -28,7 +28,28 @@ services:
       - NEXTCLOUD_TRUSTED_DOMAINS=${NEXTCLOUD_TRUSTED_DOMAINS_NEXT}
     depends_on:
       - db
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=traefik"
+      - "traefik.http.routers.terminal.rule=Host(`redescobi.ddns.net`)"
+      - "traefik.http.routers.terminal.entrypoints=web"
+      - "traefik.http.routers.terminal.middlewares=https_redirect"
+      - "traefik.http.services.terminal.loadbalancer.server.port=80"
+
+      - "traefik.http.routers.terminalsecured.rule=Host(`redescobi.ddns.net`)"
+      - "traefik.http.routers.terminalsecured.entrypoints=websecure"
+      - "traefik.http.routers.terminalsecured.tls.certresolver=myresolver"
+
+      - "traefik.http.middlewares.https_redirect.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.https_redirect.redirectscheme.permanent=true"
+    networks:
+      - default
+      - traefik
 
 volumes:
   db:
   nextcloud:
+
+networks:
+  traefik:
+    external: true
