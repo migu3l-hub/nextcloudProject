@@ -42,7 +42,6 @@ services:
       - "traefik.http.middlewares.https_redirect.redirectscheme.scheme=https"
       - "traefik.http.middlewares.https_redirect.redirectscheme.permanent=true"
     networks:
-      - default
       - traefik
 
 volumes:
