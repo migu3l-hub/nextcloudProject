@@ -12,10 +12,8 @@ services:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD_NEXT}
 
   app:
-    image: nextcloud
+    image: nextcloud:23-apache
     restart: always
-    expose:
-      - 80
     volumes:
       - nextcloud:/var/www/html
     environment:
@@ -41,13 +39,13 @@ services:
 
       - "traefik.http.middlewares.https_redirect.redirectscheme.scheme=https"
       - "traefik.http.middlewares.https_redirect.redirectscheme.permanent=true"
-    networks:
-      - traefik
 
 volumes:
   db:
   nextcloud:
 
+# Ya no hace falta añadirla a los servicios por que es la default
 networks:
-  traefik:
-    external: true
+  default:
+    external:
+      name: traefik
