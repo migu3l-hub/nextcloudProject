@@ -5,7 +5,7 @@ services:
     image: postgres
     restart: always
     volumes:
-      - db:/var/lib/postgresql/data
+      - /Sistemas/nextcloud/pg/data:/var/lib/postgresql/data
     environment:
       - POSTGRES_DB=${POSTGRES_DB_NEXT}
       - POSTGRES_USER=${POSTGRES_USER_NEXT}
@@ -15,7 +15,7 @@ services:
     image: nextcloud:23-apache
     restart: always
     volumes:
-      - nextcloud:/var/www/html
+      - /Sistemas/nextcloud/html:/var/www/html
     environment:
       - POSTGRES_HOST=${POSTGRES_HOST_NEXT}
       - POSTGRES_DB=${POSTGRES_DB_NEXT}
@@ -42,9 +42,6 @@ services:
       - "traefik.http.middlewares.https_redirect.redirectscheme.scheme=https"
       - "traefik.http.middlewares.https_redirect.redirectscheme.permanent=true"
 
-volumes:
-  db:
-  nextcloud:
 
 # Ya no hace falta añadirla a los servicios por que es la default
 networks:
