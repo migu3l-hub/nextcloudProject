@@ -31,11 +31,11 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=traefik"
-      - "traefik.http.routers.terminal.rule=Host(`redescobi.ddns.net`)"
+      - "traefik.http.routers.terminal.rule=Host(`despacholahe.ddns.net`)"
       - "traefik.http.routers.terminal.entrypoints=web"
       - "traefik.http.routers.terminal.middlewares=https_redirect"
 
-      - "traefik.http.routers.terminalsecured.rule=Host(`redescobi.ddns.net`)"
+      - "traefik.http.routers.terminalsecured.rule=Host(`despacholahe.ddns.net`)"
       - "traefik.http.routers.terminalsecured.entrypoints=websecure"
       - "traefik.http.routers.terminalsecured.tls.certresolver=myresolver"
 
